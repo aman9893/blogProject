@@ -1,0 +1,19 @@
+.empside_text_header{
+    float: left;
+    width: 100%;
+    text-align: center;
+    font-family: Poppinsnormal;
+    font-size: 27px;
+}
+.header_main_wrapper{
+    float: left;
+    font-weight: bold;
+    width: 100%;
+    padding: 19px;
+    background: #2d3034;
+    color: white;
+    box-shadow: 5px 4px #e9ecef05;
+}
+.admin_side{
+
+}

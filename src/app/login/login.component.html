@@ -1,0 +1,29 @@
+<div class="login_window">
+  <div [formGroup]="loginForm" novalidate class="form_container_wrapper">
+    <mat-card>
+      <div class="change_company_header">
+        BIT COT
+        <span> LOGIN
+        </span>
+      </div>
+      <div class="change_company_cantainer">
+      <mat-form-field class="form_container">
+        <input  formControlName="email" matInput placeholder="Email">
+      </mat-form-field>
+
+      <mat-form-field class="form_container">
+        <input type="password" formControlName="password" matInput placeholder="Password">
+      </mat-form-field>
+    </div>
+    <div  class="change_company_cantainer">
+      
+      <div class="form_container_btn_wrapper">
+        <button  type="submit" [disabled]="!loginForm.valid"  (click)="onSubmit()"   mat-stroked-button color="primary"> Login </button>
+      </div>
+      <div class="register_text" routerLinkActive="active" routerLink="/singup"> Create a Your account ? </div>
+   
+    </div>
+    </mat-card>
+  
+  </div>
+</div>

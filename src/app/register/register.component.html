@@ -1,0 +1,38 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <span>TEST  APPLICATION</span>
+      <span class="example-spacer"></span>
+      
+      <mat-icon class="icon_value">laptop</mat-icon>
+      <span  routerLinkActive="active" routerLink="login" class="icon_text"> Login </span>
+    
+    </mat-toolbar-row>
+    </mat-toolbar>
+<div   class="login_window">
+
+    <div class="form_container_wrapper">
+      <mat-card [formGroup]="sginupForm" novalidate>
+          <div class="change_company_header">
+              TEST <span> REGISTER </span>
+        </div>
+        <mat-form-field class="form_container">
+          <input matInput  formControlName="name"  placeholder="Name">
+        </mat-form-field>
+
+        <mat-form-field class="form_container">
+            <input  type="email" matInput formControlName="email" placeholder="Email">
+          </mat-form-field>
+          
+          <mat-form-field class="form_container">
+              <input type="password" matInput formControlName="password" placeholder="Password">
+            </mat-form-field>
+
+            <div class="form_container_btn_wrapper">
+                <span class="form_container_btn" routerLinkActive="active" routerLink="../login" > Login </span>
+                <button  type="submit" [disabled]="!sginupForm.valid"  (click)="onSubmit()" 
+                  mat-stroked-button color="primary"> Register </button>
+            </div>
+      </mat-card>
+    </div>
+</div>
+

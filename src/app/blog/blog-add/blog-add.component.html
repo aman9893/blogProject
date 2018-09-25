@@ -1,0 +1,37 @@
+<h1 mat-dialog-title>
+  ADD BLOG BIT COT </h1>
+<div *ngIf="formStatus" [formGroup]="blogAddForm" novalidate>
+  <div mat-dialog-content>
+
+    <mat-form-field class="width_100">
+      <input matInput placeholder=" Enter blog_name" formControlName="blog_name" required>
+      <!-- <mat-error *ngIf="blogAddForm['controls'].task_name.invalid">{{getError()}}</mat-error> -->
+    </mat-form-field>
+    <div *ngIf="formStatus" novalidate>
+      <ckeditor formControlName="blog_description" [config]="{uiColor: '#99000'}" [readonly]="false" (change)="onChange($event)"
+        (blur)="onBlur($event)" debounce="500">
+        {{mycontent}}
+      </ckeditor>
+    </div>
+    <!--
+  <mat-form-field class="width_100">
+    <textarea matInput placeholder="Enter The blog desciption" rows="8" cols="33" formControlName="blog_description"></textarea>
+  </mat-form-field> -->
+
+    <div class="image_upload">
+      <input type="file" (change)="fileChangeEvent($event)" placeholder="Upload file..." />
+      <button type="button" (click)="upload()">Upload</button>
+    </div>
+
+    <div *ngIf="saveFlag=== 'save' " class="both_btn">
+      <button mat-raised-button (click)="cancel()" class="uppercase_button cancel_btn">Cancel</button>
+      <button mat-raised-button type="submit" (click)="onSubmit()" class="uppercase_button save_btn">Save</button>
+    </div>
+  </div>
+
+  <div *ngIf="updateFlag === 'update'" class="both_btn">
+    <button mat-raised-button (click)='cancel()' class="cancel_btn">Cancel</button>
+    <button mat-raised-button type="submit" (click)="onUpdate()" class="save_btn">Update</button>
+  </div>
+
+</div>

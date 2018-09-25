@@ -1,0 +1,57 @@
+.image_url {
+    max-height: 127px !important;
+    height: 113px !important;
+}
+
+.box_blog_title {
+    font-size: 15px !important;
+    text-transform: capitalize;
+    max-width: 133px;
+    float: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.comment_box {
+    margin-top: 13px;
+    padding: 10px;
+}
+
+.comment_like button {
+    outline: none !important;
+}
+
+.text_data {
+    font-family: Poplight2;
+    text-align: center;
+    word-spacing: 5px;
+}
+
+.text_date {
+    font-family: poppinsnor;
+    padding-top: 24px;
+    padding-left: 18px;
+}
+
+.mat-card-avatar {
+    height: 27px;
+    width: 27px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.remove_blog {
+    cursor: pointer;
+    float: right;
+    color: #2125297d;
+    padding-top: 8px;
+}
+.icon_editfont{
+    font-size: 16px;
+    text-align: right;
+    float: left;
+    width: 100%;
+    cursor: pointer;
+    padding-top: 6px;
+}

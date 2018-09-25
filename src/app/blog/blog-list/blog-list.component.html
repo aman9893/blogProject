@@ -1,0 +1,50 @@
+<div class="container=fuild">
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <span class="main_header_title"> Blog Bitcot </span>
+      <span class="example-spacer"></span>
+      <mat-icon class="icon_value">laptop</mat-icon>
+      <span routerLinkActive="active" routerLink="/admin" (click)=logout() class="icon_text"> LOGOUT </span>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <mat-toolbar>
+    <div class="header_searchbar">
+    </div>
+    <div class="subheader_right">
+      <button (click)="addBlog(data,'save')" mat-stroked-button color="primary">ADD NEW BLOG</button>
+    </div>
+  </mat-toolbar>
+
+  <div *ngIf="bloglist" >
+    <div class="search_librarycontainer">
+      <input type="text" autocomplete="off" id="search_bar" [(ngModel)]="term" placeholder="Search"> </div>
+    <div class="box_blog" *ngFor="let blog of bloglist |filter:term">
+      <mat-card class="example-card">
+
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image">
+          </div>
+          <i class="material-icons icon_editfont " (click)="addBlog(blog,'update')">edit</i>
+          <mat-card-title class="box_blog_title">{{blog.blog_name}}</mat-card-title>
+        </mat-card-header>
+        <img mat-card-image class="image_url" src="{{env.myVarForImageURLS}}{{blog.blog_image}}" alt="{{blog.blog_image}}">
+        <mat-card-content>
+          <p [innerHTML]='blog.blog_description'></p>
+          <div class="text_date">
+            {{blog.blog_date |date:'fullDate'}}
+          </div>
+        </mat-card-content>
+        <div class="comment_like">
+          <button mat-icon-button color="warn">
+            <mat-icon aria-label="Example icon-button with a heart icon">favorite</mat-icon>
+            21
+          </button>
+          <span (click)=deleteBlog(blog.blog_id) class="remove_blog">
+            <i class="material-icons">
+              delete_forever
+            </i>
+          </span>
+        </div>
+      </mat-card>
+    </div>
+  </div>

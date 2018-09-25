@@ -1,0 +1,26 @@
+.example-card {
+    max-width: 250px;
+    margin: 40px;
+
+  }
+  
+  .example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  }
+  .box_blog{
+      float: left;
+  }
+
+.image_upload{
+  float: left;
+  /* width: 100%; */
+  margin: 35px;
+}
+.both_btn{
+  float: right;
+  margin: 10px;
+}
+.cancel_btn{
+  margin: 10px;
+}

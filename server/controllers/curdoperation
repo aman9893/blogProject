@@ -1,0 +1,96 @@
+
+var mysql = require('mysql');
+var express = require('express')
+var app = express()
+var http = require('http');
+var bodyparser = require('body-parser');
+
+app.use(bodyparser.urlencoded({ extended: false }))
+ 
+// parse application/json
+app.use(bodyparser.json())
+
+var con = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  port: "3300",
+  password: "123",
+  database: "nodejsTesting",
+  multipleStatements:true
+});
+
+con.connect(function (error) {
+  if (error) {
+    console.log(error + JSON.stringify(error, undefined, 2))
+  } else {
+    console.log("Connected!")
+  }
+});
+
+app.get('/get', (req, res) => {
+
+  con.query('SELECT * FROM 	empolyee', (err, rows, fields) => {
+    if (!err) {
+      res.send(rows);
+      console.log(rows)
+    } else {
+      console.log("error")
+    }
+  });
+});
+
+app.get('/get/:id', (req, res) => {
+
+  con.query('SELECT * FROM empolyee WHERE id=?', [req.params.id], (err, rows, fields) => {
+
+    if (!err) {
+      console.log(rows)
+      res.send(rows);
+    } else {
+      console.log(err)
+    }
+  });
+});
+
+app.delete('/get/:id', (req, res) => {
+
+  con.query('DELETE FROM empolyee WHERE id=?', [req.params.id], (err, rows, fields) => {
+    if (!err) {
+
+      console.log('deleted')
+      res.send("deleted sucessfuly");
+    } else {
+      console.log(err)
+    }
+  });
+});
+
+app.post('/post', (req, res) => {
+
+  console.log(req.body)
+  
+  let emp = req.body;
+
+var sql = {
+  id: emp.id,
+  name: emp.name,
+  phone: emp.phone,
+  passward: emp.passward,
+  };
+
+  var query = con.query('insert into empolyee set ?', sql, function (err, result) {
+    if (!err) {
+      rows.forEach(element => {
+        if (element.constructor === Array)
+          res.send("insert sucessfuly" + element[0].id);
+      });
+    }
+     else
+      console.log(err)
+  });
+})
+
+app.listen((12345), () => console.log("post start on 12345"));
+
+
+ 

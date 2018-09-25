@@ -1,0 +1,21 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span class="header_admin_img">
+      <img src="http://pngimage.net/wp-content/uploads/2018/05/admin-images-png-3.png"> </span>
+    <span class="main_header_title">Welcome Admin</span>
+    <div class="admin_module_dropdown">
+      <button mat-icon-button [matMenuTriggerFor]="componentmenu">
+        <i class="material-icons">add</i>
+      </button>
+      <mat-menu #componentmenu="matMenu" xPosition="after" yPosition="above" [overlapTrigger]="false">
+        <button mat-menu-item (click)="createLibraryDialog()">
+          <mat-icon>local_library</mat-icon>Library Management</button>
+        <button mat-menu-item (click)="createPersonDialog()">
+          <mat-icon>account_circle</mat-icon>Empolyee Management</button>
+      </mat-menu>
+    </div>
+    <span class="example-spacer"></span>
+    <mat-icon class="icon_value">laptop</mat-icon>
+    <span routerLinkActive="active" (click)="logout()" routerLink="/login" class="icon_text"> Logout </span>
+  </mat-toolbar-row>
+</mat-toolbar>

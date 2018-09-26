@@ -1,0 +1,16 @@
+step 1   .  download git clone 
+step 2   . extract the folder
+step 3   . run this command ====>   npm install 
+step     . import database file   ===> database name create wil be      ========== blog   config.js file assign your mysql port 
+step 3   . go to  server folder run this cammand  cd server=====>     node index.js 
+step     . project folder run this cammand   ===============>  ng serve 
+
+
+then login 
+aman@gmail.com  
+123456
+
+and you can register also
+
+
+open blog page
